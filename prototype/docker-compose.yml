@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  nodered:
+    container_name: nodered
+    image: nodered/node-red:latest-minimal
+    ports:
+      - "1880:1880"
+    # volumes:
+    #   - "nodered-data:/opt/nodered/flow"
+  activemq:
+    container_name: activemq
+    image: rmohr/activemq:5.14.5-alpine
+    ports:
+      #AMQP
+      - "5672:5672"
+      #UI
+      - "8161:8161"
+      #JMS
+      - "61616:61616"
+      #WS
+      - "61614:61614"
+      #STOMP
+      - "61613:61613"
+      #MQTT
+      - "1883:1883"
+      # volumes:
+      #   - "activemq-data:/opt/activemq/conf"
+    restart: always
+    environment:
+      - ACTIVEMQ_ADMIN_LOGIN=admin
+      - ACTIVEMQ_ADMIN_PASSWORD=password
+volumes:
+  nodered-data: {}
+  activemq-data: {}
