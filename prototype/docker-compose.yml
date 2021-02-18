@@ -1,14 +1,47 @@
 version: "3.9"
 services:
-  nodered:
-    container_name: nodered
+  raspberrypi_1:
+    container_name: raspberrypi_1
+    image: nodered/node-red:latest-minimal
+    ports:
+      - "4000:1880"
+    volumes:
+      - "raspberrypi_1-data:/opt/raspberrypi_1/config"
+
+  raspberrypi_2:
+    container_name: raspberrypi_2
+    image: nodered/node-red:latest-minimal
+    ports:
+      - "4001:1880"
+    volumes:
+      - "raspberrypi_2-data:/opt/raspberrypi_2/config"
+  
+  mqttclient:
+    container_name: mqttclient
     image: nodered/node-red:latest-minimal
     ports:
       - "1880:1880"
-    # volumes:
-    #   - "nodered-data:/opt/nodered/flow"
-  activemq:
-    container_name: activemq
+    volumes:
+      - "mqttclient-data:/opt/mqttclient/config"
+  
+  database:
+    container_name: database
+    image: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - "database-data:/opt/database/config"
+  
+  dashboard:
+    container_name: dashboard
+    image: grafana/grafana
+    ports:
+      - "3000:3000"    
+    volumes:
+      - "dashboard-data:/opt/dashboard/config"
+
+  broker:
+    container_name: broker
     image: rmohr/activemq:5.14.5-alpine
     ports:
       #AMQP
@@ -23,12 +56,13 @@ services:
       - "61613:61613"
       #MQTT
       - "1883:1883"
-      # volumes:
-      #   - "activemq-data:/opt/activemq/conf"
-    restart: always
-    environment:
-      - ACTIVEMQ_ADMIN_LOGIN=admin
-      - ACTIVEMQ_ADMIN_PASSWORD=password
+    volumes:
+        - "broker-data:/opt/broker/conf"
+
 volumes:
-  nodered-data: {}
-  activemq-data: {}
+  raspberrypi_1-data: {}
+  raspberrypi_2-data: {}
+  mqttclient-data: {}
+  database-data: {}
+  dashboard-data: {}
+  broker-data: {}
