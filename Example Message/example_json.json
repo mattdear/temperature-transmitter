@@ -1,0 +1,25 @@
+The transmitter/site/region information will be included in the path of the MQTT message
+{
+	// Timestamp of when the reading was taken
+	"Timestamp" : "2021-06-01T12:45:00.000Z"
+	
+	// Voltage differential, calibration coefficents for the thermocouple, and the
+	// calculated temperature before the test load
+	"Volt1" : ""
+	"Coef1A" : ""
+	"Coef1B" : ""
+	"Temp1" : ""
+
+	// Voltage differential, calibration coefficents for the thermocouple, and the
+	// calculated temperature after the test load
+	"Volt2" : ""
+	"Coef2A" : ""
+	"Coef2B" : ""
+	"Temp2" : ""
+	
+	// The flow rate when the readings were taken
+	"Flow" : ""
+	
+	// The final calculated power applied to the test load
+	"Power" : ""
+}
