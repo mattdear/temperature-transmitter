@@ -1,7 +1,7 @@
 # Architecture Diagram
 This diagram shows an overview of the proposed system.
 
-[Architecture Diagram](architecture_diagram.png)
+![Architecture Diagram](architecture_diagram.png)
 
 The on-site hardware will include Raspberry Pis that periodically (every 15 minutes) transmit sensor readings from the attached thermocouples and flow sensors to a shared message broker.
 
