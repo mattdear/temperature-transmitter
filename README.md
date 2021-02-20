@@ -1,2 +1,4 @@
 # temperature_transmitter
 VHF test load thermal dissipation measurement solution.
+
+We are Software Engineering students in our final year, currently working on our Industrial Consulting Project (COM617). Our project will include the VHF Test Load Thermal Dissipation measurement. Arqiva operate terrestrial broadcast TV and radio network of transmitters in the UK. This network of transmitters are controlled and monitored from a central location in Yorkshire. High power VHF transmitters are tested by connecting them to a 'test load' instead of an aerial. Currently the temperature of the test load is simply measured using a thermostat locally. We would be implementing a mechanism to allow the temperature to be measured using a thermocouple and reported remotely.
