@@ -14,7 +14,7 @@ services:
     ports:
       - "4001:1880"
     volumes:
-      - "raspberrypi_2-data:/opt/raspberrypi_2/config"
+      - "raspberrypi_2_data:/data"
   
   mqttclient:
     container_name: mqttclient
@@ -22,7 +22,7 @@ services:
     ports:
       - "1880:1880"
     volumes:
-      - "mqttclient-data:/opt/mqttclient/config"
+      - "mqttclient_data:/data"
   
   database:
     container_name: database
@@ -30,7 +30,7 @@ services:
     ports:
       - "5000:8086"
     volumes:
-      - "database-data:/opt/database/config"
+      - "database_data:/data"
   
   dashboard:
     container_name: dashboard
@@ -38,7 +38,7 @@ services:
     ports:
       - "3000:3000"    
     volumes:
-      - "dashboard-data:/opt/dashboard/config"
+      - "dashboard_data:/data"
 
   broker:
     container_name: broker
@@ -57,12 +57,12 @@ services:
       #MQTT
       - "1883:1883"
     volumes:
-        - "broker-data:/opt/broker/conf"
+        - "broker_data:/data"
 
 volumes:
   raspberrypi_1_data: {}
-  raspberrypi_2-data: {}
-  mqttclient-data: {}
-  database-data: {}
-  dashboard-data: {}
-  broker-data: {}
+  raspberrypi_2_data: {}
+  mqttclient_data: {}
+  database_data: {}
+  dashboard_data: {}
+  broker_data: {}
