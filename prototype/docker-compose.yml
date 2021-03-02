@@ -28,7 +28,7 @@ services:
     container_name: database
     image: influxdb
     ports:
-      - "8086:8086"
+      - "5000:8086"
     volumes:
       - "database-data:/opt/database/config"
   
