@@ -6,7 +6,7 @@ services:
     ports:
       - "4000:1880"
     volumes:
-      - "raspberrypi_1-data:/opt/raspberrypi_1/config"
+      - "raspberrypi_1_data:/data"
 
   raspberrypi_2:
     container_name: raspberrypi_2
@@ -60,7 +60,7 @@ services:
         - "broker-data:/opt/broker/conf"
 
 volumes:
-  raspberrypi_1-data: {}
+  raspberrypi_1_data: {}
   raspberrypi_2-data: {}
   mqttclient-data: {}
   database-data: {}
