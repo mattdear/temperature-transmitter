@@ -2,7 +2,9 @@ version: "3.9"
 services:
   raspberrypi_1:
     container_name: raspberrypi_1
-    image: nodered/node-red:latest-minimal
+    build: 
+      context: ./raspberrypi_1
+      dockerfile: Dockerfile
     ports:
       - "4000:1880"
     volumes:
