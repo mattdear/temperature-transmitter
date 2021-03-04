@@ -1,5 +1,3 @@
 FROM grafana/grafana
 
-RUN rm main_dashboard_setup.yml 
-
-RUN wget -P /etc/grafana/provisioning/dashboards https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/transmission_strength_monitoring_system/dashboard/main_dashboard.json
+RUN wget -P /var/lib/grafana https://github.com/mattdear/temperature_transmitter/raw/docker/transmission_strength_monitoring_system/dashboard/grafana.db
