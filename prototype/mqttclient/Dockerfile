@@ -1,5 +1,7 @@
 FROM nodered/node-red:latest-minimal
 
+RUN npm install node-red-contrib-influxdb
+
 RUN rm /data/flows.json
 
 RUN curl https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/prototype/raspberrypi_1/matts_flows.json -o /data/flows.json
@@ -7,4 +9,3 @@ RUN curl https://raw.githubusercontent.com/mattdear/temperature_transmitter/dock
 RUN cd /data
 
 RUN npm install
-
