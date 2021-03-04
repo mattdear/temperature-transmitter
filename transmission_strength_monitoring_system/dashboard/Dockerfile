@@ -4,8 +4,8 @@ FROM grafana/grafana
 
 # RUN mkdir dashboards
 
-RUN wget -P /var/lib/grafana/main_dashboard https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/prototype/dashboard/main_dashboard.json
+RUN wget -P /var/lib/grafana https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/transmission_strength_monitoring_system/dashboard/main_dashboard.json
 
 # RUN curl https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/prototype/dashboard/dashboard.json -o /var/lib/grafana/main_dashboard.json
 
-# RUN curl https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/prototype/dashboard/dashboard_setup.yml -o /usr/share/grafana/conf/provisioning/dashboards/config.yml
+RUN wget -P /usr/share/grafana/conf/provisioning/dashboards/dashboard_config.yml  
