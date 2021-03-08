@@ -37,7 +37,6 @@ services:
     build: 
       context: ./dashboard
       dockerfile: Dockerfile
-    image: grafana/grafana
     ports:
       - "3000:3000"    
     volumes:
