@@ -6,6 +6,10 @@ RUN rm /data/flows.json
 
 RUN curl https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/local_script/transmission_strength_monitoring_system/mqttclient/flows.json -o /data/flows.json
 
+# RUN rm /data/settings.js
+
+RUN curl https://raw.githubusercontent.com/mattdear/temperature_transmitter/docker/local_script/transmission_strength_monitoring_system/mqttclient/settings.js -o /data/settings.js
+
 RUN cd /data
 
 RUN npm install
