@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4000:1880"
+    volumes:
+      - RP1_DATA:/data
 
   raspberrypi_2:
     container_name: raspberrypi_2
@@ -15,6 +17,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4001:1880"
+    volumes:
+      - RP2_DATA:/data
   
   mqttclient:
     container_name: mqttclient
@@ -23,6 +27,8 @@ services:
       dockerfile: Dockerfile       
     ports:
       - "1880:1880"
+    volumes:
+      - CLIENT_DATA:/data
   
   database:
     container_name: database
@@ -68,6 +74,9 @@ services:
       - ACMQ_DATA:/opt/activemq/data
 
 volumes:
+  RP1_DATA: {}
+  RP2_DATA: {}
+  CLIENT_DATA: {}
   INFX_CONFIG_DATA: {}
   DASH_CONFIG: {}
   DASH_DATA: {}
