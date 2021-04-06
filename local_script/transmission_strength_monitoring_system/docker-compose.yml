@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4000:1880"
-    volumes:
-      - RP1_DATA:/data
 
   raspberrypi_2:
     container_name: raspberrypi_2
@@ -17,9 +15,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4001:1880"
-    volumes:
-      - RP2_DATA:/data
-  
+    
   mqttclient:
     container_name: mqttclient
     build: 
@@ -27,31 +23,20 @@ services:
       dockerfile: Dockerfile       
     ports:
       - "1880:1880"
-    volumes:
-      - CLIENT_DATA:/data
   
   database:
     container_name: database
     image: influxdb
     ports:
       - "5000:8086"
-    volumes:
-      - INFX_CONFIG_DATA:/var/lib/influxdb2
-  
+      
   dashboard:
     container_name: dashboard
     build: 
       context: ./dashboard
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"    
-    volumes:
-      - DASH_CONFIG:/etc/grafana/
-      - DASH_DATA:/var/lib/grafana
-      - DASH_HOME:/usr/share/grafana
-      - DASH_LOGS:/var/log/grafana
-      - DASH_PLUGINS:/var/lib/grafana/plugins
-      - DASH_PROVISIONING:/etc/grafana/provisioning
+      - "3000:3000"
 
   broker:
     container_name: broker
@@ -69,20 +54,3 @@ services:
       - "61613:61613"
       #MQTT
       - "1883:1883"
-    volumes:
-      - ACMQ_CONF:/opt/activemq/conf
-      - ACMQ_DATA:/opt/activemq/data
-
-volumes:
-  RP1_DATA: {}
-  RP2_DATA: {}
-  CLIENT_DATA: {}
-  INFX_CONFIG_DATA: {}
-  DASH_CONFIG: {}
-  DASH_DATA: {}
-  DASH_HOME: {}
-  DASH_LOGS: {}
-  DASH_PLUGINS: {}
-  DASH_PROVISIONING: {}
-  ACMQ_CONF: {}
-  ACMQ_DATA: {}
