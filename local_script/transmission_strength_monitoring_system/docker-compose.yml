@@ -35,7 +35,6 @@ services:
       - DOCKER_INFLUXDB_INIT_PASSWORD=refried-stoppage-aerobics
       - DOCKER_INFLUXDB_INIT_ORG=Arqiva
       - DOCKER_INFLUXDB_INIT_BUCKET=TransmitterPower
-
       
   dashboard:
     container_name: dashboard
@@ -44,6 +43,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - DASH_CONFIG:/etc/grafana/
+      - DASH_DATA:/var/lib/grafana
+      - DASH_HOME:/usr/share/grafana
+      - DASH_LOGS:/var/log/grafana
+      - DASH_PLUGINS:/var/lib/grafana/plugins
+      - DASH_PROVISIONING:/etc/grafana/provisioning
 
   broker:
     container_name: broker
@@ -61,3 +67,11 @@ services:
       - "61613:61613"
       #MQTT
       - "1883:1883"
+
+volumes:
+  DASH_CONFIG: {}
+  DASH_DATA: {}
+  DASH_HOME: {}
+  DASH_LOGS: {}
+  DASH_PLUGINS: {}
+  DASH_PROVISIONING: {}
