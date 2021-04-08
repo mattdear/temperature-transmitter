@@ -29,6 +29,13 @@ services:
     image: influxdb
     ports:
       - "5000:8086"
+    environment:  
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=arqiva_admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=refried-stoppage-aerobics
+      - DOCKER_INFLUXDB_INIT_ORG=Arqiva
+      - DOCKER_INFLUXDB_INIT_BUCKET=TransmitterPower
+
       
   dashboard:
     container_name: dashboard
