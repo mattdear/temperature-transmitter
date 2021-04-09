@@ -1,4 +1,4 @@
-<p align="center"> # Transmission Strength Monitoring System <p>
+<p align="center"> # Transmission Strength Monitoring System </p>
 
 ## About :bulb:
 -
@@ -10,3 +10,4 @@
 -
 
 ## Future Work :construction:
+-
