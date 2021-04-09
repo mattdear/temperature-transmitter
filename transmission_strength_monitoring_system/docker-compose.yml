@@ -1,5 +1,22 @@
 version: "3.9"
-services:      
+services:     
+  broker:
+    container_name: broker
+    image: rmohr/activemq:5.14.5-alpine
+    ports:
+      #AMQP
+      - "5672:5672"
+      #UI
+      - "8161:8161"
+      #JMS
+      - "61616:61616"
+      #WS
+      - "61614:61614"
+      #STOMP
+      - "61613:61613"
+      #MQTT
+      - "1883:1883"
+
   raspberrypi_1:
     container_name: raspberrypi_1
     build: 
@@ -26,7 +43,7 @@ services:
   
   database:
     container_name: database
-    image: influxdb
+    image: influxdb:2.0.4
     ports:
       - "5000:8086"
     environment:  
@@ -35,8 +52,6 @@ services:
       - DOCKER_INFLUXDB_INIT_PASSWORD=refried-stoppage-aerobics
       - DOCKER_INFLUXDB_INIT_ORG=Arqiva
       - DOCKER_INFLUXDB_INIT_BUCKET=TransmitterPower
-    volumes:
-      - INFX_CONFIG_DATA:/var/lib/influxdb2
       
   dashboard:
     container_name: dashboard
@@ -53,33 +68,10 @@ services:
       - DASH_PLUGINS:/var/lib/grafana/plugins
       - DASH_PROVISIONING:/etc/grafana/provisioning
 
-  broker:
-    container_name: broker
-    image: rmohr/activemq:5.14.5-alpine
-    ports:
-      #AMQP
-      - "5672:5672"
-      #UI
-      - "8161:8161"
-      #JMS
-      - "61616:61616"
-      #WS
-      - "61614:61614"
-      #STOMP
-      - "61613:61613"
-      #MQTT
-      - "1883:1883"
-    volumes:
-      - ACMQ_CONF:/opt/activemq/conf
-      - ACMQ_DATA:/opt/activemq/data
-
 volumes:
-  INFX_CONFIG_DATA: {}
   DASH_CONFIG: {}
   DASH_DATA: {}
   DASH_HOME: {}
   DASH_LOGS: {}
   DASH_PLUGINS: {}
   DASH_PROVISIONING: {}
-  ACMQ_CONF: {}
-  ACMQ_DATA: {}

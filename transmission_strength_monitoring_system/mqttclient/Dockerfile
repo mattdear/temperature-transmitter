@@ -1,4 +1,4 @@
-FROM nodered/node-red:latest-minimal
+FROM nodered/node-red:1.2.9
 
 RUN npm install node-red-contrib-influxdb
 
