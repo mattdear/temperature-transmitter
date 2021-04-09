@@ -1,2 +1,11 @@
-# temperature_transmitter
-VHF test load thermal dissipation measurement solution.
+<p align="center"># Transmission Strength Monitoring System<p>
+## About :bulb:
+-
+
+## Requirements :wrench:
+-
+
+## Setup :computer:
+-
+
+## Future Work :construction:
