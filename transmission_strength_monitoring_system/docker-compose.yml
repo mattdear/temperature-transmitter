@@ -35,6 +35,8 @@ services:
       - DOCKER_INFLUXDB_INIT_PASSWORD=refried-stoppage-aerobics
       - DOCKER_INFLUXDB_INIT_ORG=Arqiva
       - DOCKER_INFLUXDB_INIT_BUCKET=TransmitterPower
+    volumes:
+      - INFX_CONFIG_DATA:/var/lib/influxdb2
       
   dashboard:
     container_name: dashboard
@@ -67,11 +69,17 @@ services:
       - "61613:61613"
       #MQTT
       - "1883:1883"
+    volumes:
+      - ACMQ_CONF:/opt/activemq/conf
+      - ACMQ_DATA:/opt/activemq/data
 
 volumes:
+  INFX_CONFIG_DATA: {}
   DASH_CONFIG: {}
   DASH_DATA: {}
   DASH_HOME: {}
   DASH_LOGS: {}
   DASH_PLUGINS: {}
   DASH_PROVISIONING: {}
+  ACMQ_CONF: {}
+  ACMQ_DATA: {}
