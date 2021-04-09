@@ -1,12 +1,12 @@
 version: "3.9"
-services:
+services:      
   raspberrypi_1:
     container_name: raspberrypi_1
     image: nodered/node-red:latest-minimal
     ports:
       - "4000:1880"
     volumes:
-      - "raspberrypi_1_data:/data"
+      - RP1_DATA:/data
 
   raspberrypi_2:
     container_name: raspberrypi_2
@@ -14,15 +14,15 @@ services:
     ports:
       - "4001:1880"
     volumes:
-      - "raspberrypi_2_data:/data"
+      - RP2_DATA:/data
   
   mqttclient:
     container_name: mqttclient
-    image: nodered/node-red:latest-minimal
+    image: nodered/node-red:latest-minimal     
     ports:
       - "1880:1880"
     volumes:
-      - "mqttclient_data:/data"
+      - MQTT_CLIENT_DATA:/data
   
   database:
     container_name: database
@@ -30,7 +30,7 @@ services:
     ports:
       - "5000:8086"
     volumes:
-      - "database_data:/data"
+      - INFX_CONFIG_DATA:/var/lib/influxdb2
   
   dashboard:
     container_name: dashboard
@@ -38,7 +38,12 @@ services:
     ports:
       - "3000:3000"    
     volumes:
-      - "dashboard_data:/data"
+      - DASH_CONFIG:/etc/grafana/
+      - DASH_DATA:/var/lib/grafana
+      - DASH_HOME:/usr/share/grafana
+      - DASH_LOGS:/var/log/grafana
+      - DASH_PLUGINS:/var/lib/grafana/plugins
+      - DASH_PROVISIONING:/etc/grafana/provisioning
 
   broker:
     container_name: broker
@@ -57,12 +62,19 @@ services:
       #MQTT
       - "1883:1883"
     volumes:
-        - "broker_data:/data"
+      - ACMQ_CONF:/opt/activemq/conf
+      - ACMQ_DATA:/opt/activemq/data
 
 volumes:
-  raspberrypi_1_data: {}
-  raspberrypi_2_data: {}
-  mqttclient_data: {}
-  database_data: {}
-  dashboard_data: {}
-  broker_data: {}
+  RP1_DATA: {}
+  RP2_DATA: {}
+  MQTT_CLIENT_DATA: {}
+  INFX_CONFIG_DATA: {}
+  DASH_CONFIG: {}
+  DASH_DATA: {}
+  DASH_HOME: {}
+  DASH_LOGS: {}
+  DASH_PLUGINS: {}
+  DASH_PROVISIONING: {}
+  ACMQ_CONF: {}
+  ACMQ_DATA: {}
