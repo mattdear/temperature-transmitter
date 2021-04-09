@@ -1,22 +1,5 @@
 version: "3.9"
 services:     
-  broker:
-    container_name: broker
-    image: rmohr/activemq:5.14.5-alpine
-    ports:
-      #AMQP
-      - "5672:5672"
-      #UI
-      - "8161:8161"
-      #JMS
-      - "61616:61616"
-      #WS
-      - "61614:61614"
-      #STOMP
-      - "61613:61613"
-      #MQTT
-      - "1883:1883"
-
   raspberrypi_1:
     container_name: raspberrypi_1
     build: 
@@ -67,6 +50,23 @@ services:
       - DASH_LOGS:/var/log/grafana
       - DASH_PLUGINS:/var/lib/grafana/plugins
       - DASH_PROVISIONING:/etc/grafana/provisioning
+  
+  broker:
+    container_name: broker
+    image: rmohr/activemq:5.14.5-alpine
+    ports:
+      #AMQP
+      - "5672:5672"
+      #UI
+      - "8161:8161"
+      #JMS
+      - "61616:61616"
+      #WS
+      - "61614:61614"
+      #STOMP
+      - "61613:61613"
+      #MQTT
+      - "1883:1883"
 
 volumes:
   DASH_CONFIG: {}
