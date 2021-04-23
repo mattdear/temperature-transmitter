@@ -1,7 +1,9 @@
 # Transmission Strength Monitoring System
 
 ## About :bulb:
--
+Arqiva operate and monitor a network of TV and radio transmitters in the UK from a central location in Yorkshire. The power output of these VHF transmitters is measured by connecting the energy input to a “test load” instead of the transmitter. The radio frequency energy sunk in the test load causes it to heat up and this temperature change can be used to infer the amount of power that would have gone to the transmitter. As the power output of the transmitters must adhere to strict regulations, this temperature change must be measured reliably. Currently the temperature of the test load is measured using analogue glass thermometers and the power is calculated by reading the difference in the temperature before and after the test load.
+
+The goal of this project is to create a system that will monitor the temperature difference of the test load digitally and store that data on a server/cloud to be accessed remotely. This will be accomplished using on-site digital controllers and thermometers and will reduce the need for engineers to travel to site as well as improve the accuracy of readings compared to analogue. It will provide an accessible history of readings coupled with automated alerts. As a result, it will generally be cheaper to maintain and operate than current system.
 
 ## Setup :computer:
 
