@@ -66,4 +66,7 @@ Enter the transmitter information in the Site Configuration box.
 Navigate to `[hosted_location]:3000` in a browser to configure the Grafana dashboards and datasource. Full steps available [here](https://github.com/mattdear/temperature_transmitter/wiki/Front-End#set-up).
 
 ## Future Work :construction:
--
+- Improve security with the implementation of HTTPS and TLS.
+- Add an automated test harness covering all integration testing.
+- Add SMTP and SNMP alert notifications.
+
