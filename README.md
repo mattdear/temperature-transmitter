@@ -4,6 +4,7 @@
 -
 
 ## Setup :computer:
+
 ### Step 1. Environment
 Set up a suitable environment for hosting the required infrastructure, this can be cloud-based or on a local machine. It is recommended to run the main infrastructure of the system in Windows 10 or Ubuntu Linux.
 
@@ -31,37 +32,36 @@ The deployment script creates six [containers](#containers) - **raspberrypi_1**,
 ### Step 4. Configure the InfluxDB Connection
 When it has deployed, navigate to `[hosted_location]:5000` in a browser to access InfluxDB. Sign-in with the default credentials.
 
-![InfluxDB login](../images/dev_guide/influxdb-1.png)
+![InfluxDB login](https://github.com/mattdear/temperature_transmitter/wiki/images/dev_guide/influxdb-1.png)
 
 Go to `Data > Tokens` and either select the existing token, or generate a new one.
 
-![InfluxDB login](../images/dev_guide/influxdb-2.png)
+![InfluxDB login](https://github.com/mattdear/temperature_transmitter/wiki/images/dev_guide/influxdb-2.png)
 
 Copy the token to the clipboard.
 
-![InfluxDB login](../images/dev_guide/influxdb-3.png)
+![InfluxDB login](https://github.com/mattdear/temperature_transmitter/wiki/images/dev_guide/influxdb-3.png)
 
 Navigate to `[hosted_location]:1880` in a browser and sign in with the default credentials. Select the 'send to InfluxDB' node and edit the InfluxDB server connection.
 
-![InfluxDB login](../images/dev_guide/influxdb-4.png)
+![InfluxDB login](https://github.com/mattdear/temperature_transmitter/wiki/images/dev_guide/influxdb-4.png)
 
 Paste the token into the empty field.
 
-![InfluxDB login](../images/dev_guide/influxdb-5.png)
+![InfluxDB login](https://github.com/mattdear/temperature_transmitter/wiki/images/dev_guide/influxdb-5.png)
 
 Save the changes and redeploy the flow.
 
-![InfluxDB login](../images/dev_guide/influxdb-6.png)
+![InfluxDB login](https://github.com/mattdear/temperature_transmitter/wiki/images/dev_guide/influxdb-6.png)
 
 ### Step 5. Configure Simulated Raspberry Pi
 Navigate to `[hosted_location]:4000/ui` in a browser to configure the simulated Raspberry Pi. Sign in with the default credentials.
 Enter the transmitter information in the Site Configuration box.
 
-![Pi simulator user interface](../images/dev_guide/pi1_ui.png)
+![Pi simulator user interface](https://github.com/mattdear/temperature_transmitter/wiki/images/dev_guide/pi1_ui.png)
 
 ### Step 6. Grafana Datasource and Dashboards
-Navigate to `[hosted_location]:3000` in a browser to configure the Grafana dashboards and datasource. Full steps available [here](../Front-End#set-up).
-
+Navigate to `[hosted_location]:3000` in a browser to configure the Grafana dashboards and datasource. Full steps available [here](https://github.com/mattdear/temperature_transmitter/wiki/Front-End#set-up).
 
 ## Future Work :construction:
 -
